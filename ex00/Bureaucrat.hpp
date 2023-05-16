@@ -6,7 +6,7 @@
 /*   By: lkavalia <lkavalia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:32:22 by lkavalia          #+#    #+#             */
-/*   Updated: 2023/05/15 14:04:51 by lkavalia         ###   ########.fr       */
+/*   Updated: 2023/05/16 15:43:18 by lkavalia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BUREAURCRAT_HPP
 
 #include <iostream>
+#include <exception>
 #include <string>
 
 class	Bureaucrat
@@ -21,6 +22,7 @@ class	Bureaucrat
 	public:
 		//Canonical-form	---------->
 		Bureaucrat(void);
+		Bureaucrat(std::string name, int grade);
 		Bureaucrat(const Bureaucrat& other);
 		~Bureaucrat(void);
 
@@ -33,6 +35,20 @@ class	Bureaucrat
 		//Member functions	---------->
 		void	incrementGrade(void);
 		void	decrementGrade(void);
+		void	checkGrade(int& grade) const;
+		
+		//Exception classes ---------->
+		class	GradeTooHighException: public std::exception
+		{
+		public:
+			virtual const char	*what() const throw();
+		};
+
+		class	GradeTooLowException: public std::exception
+		{
+		public:
+			virtual const char	*what() const throw();
+		};
 	private:
 		const std::string	_name;
 		int					_grade;		
