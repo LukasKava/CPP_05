@@ -6,19 +6,20 @@
 /*   By: lkavalia <lkavalia@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:32:17 by lkavalia          #+#    #+#             */
-/*   Updated: 2023/05/18 10:55:06 by lkavalia         ###   ########.fr       */
+/*   Updated: 2023/05/18 15:14:34 by lkavalia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main(void)
 {
     {
-    Bureaucrat  b1;
-    Bureaucrat  b2;
-    Bureaucrat  b3(b2);
+        Bureaucrat  b1;
+        Bureaucrat  b2;
+        Bureaucrat  b3(b2);
 
     std::cout << YELL "\nBasic tests: ------------------" BLANK << std::endl;
         std::cout << "B1 before: " << b1;
@@ -50,31 +51,23 @@ int main(void)
         std::cout << "Wrong_b after decrement: " << wrong_b; 
         std::cout << YELL << "STILL works!" << BLANK << std::endl;
     }
-    std::cout << YELL "\nBasic tests forms: ------------------" BLANK << std::endl;
-
-    Form    a1;
-
-	try	{	Form	a2("Radio tax", 151, 0);}
-	catch (Form::GradeTooHighException&	e)
+	
+	std::cout << YELL "\nBasic tests for Presidential forms: ------------------" BLANK << std::endl;
 	{
-		std::cout << RED "Check the Form min_to_sign and min_to_execute they should be " << e.what() << BLANK << std::endl;
-	}
-	catch (Form::GradeTooLowException&	e)
-	{
-		std::cout << RED "Check the Form min_to_sign and min_to_execute they should be " << e.what() << BLANK << std::endl;
-	}
-
-	Form		a3("Radio tax legal version", 2, 4);
-	Bureaucrat	test_b("Max", 2);
-
-	try	{	a3.beSigned(test_b);}
-	catch (Form::GradeTooLowException& e)
-	{
-		std::cerr << RED << "Ups form: " << a3.getName() << " cannot be signed by: " << test_b.getName() << '!' << BLANK << std::endl;
+		Bureaucrat				b1("Marie", 2);
+		PresidentialPardonForm	p1;
+		PresidentialPardonForm	p2("PIKOBELLA");
+		PresidentialPardonForm	p3(p2);
+		
+		std::cout << "Bureaucrat.	" << b1;
+		p2.beSigned(b1);
+		std::cout << "1.	" << p1 << YELL "target: " BLANK << p1.getTarget() << std::endl;
+		std::cout << "2.	" << p2 << YELL "target: " BLANK << p2.getTarget() << std::endl;
+		std::cout << "3.	" << p3 << YELL "target: " BLANK << p3.getTarget() << std::endl;
+		p3 = p2;
+		std::cout << "4.	" << p3 << YELL "target: " BLANK << p3.getTarget() << std::endl;
+		p3.execute(b1);
 	}
 	
-	test_b.signForm(a3, "We neeed radio!!!!!!");
-	std::cout << a1 << std::endl;
-	std::cout << a3 << std::endl;
     return (0);
 }

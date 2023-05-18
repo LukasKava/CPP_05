@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkavalia <lkavalia@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:51:43 by lkavalia          #+#    #+#             */
-/*   Updated: 2023/05/18 11:19:56 by lkavalia         ###   ########.fr       */
+/*   Updated: 2023/05/18 14:48:10 by lkavalia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 #include <string>
 
 class	Bureaucrat;
+class	PresidentialPardonForm;
 
-class   Form
+class   AForm
 {
     private:
         const std::string   _name;
@@ -30,12 +31,12 @@ class   Form
     public:
 
         //Canonical form	--------------------------->
-		Form(void);
-		Form(std::string name, int min_grade_to_sign, int min_grade_to_execute);
-		Form(const Form& other);
-		~Form(void);
+		AForm(void);
+		AForm(std::string name, int min_grade_to_sign, int min_grade_to_execute);
+		AForm(const AForm& other);
+		~AForm(void);
 		
-		Form&	operator=(const Form& other);
+		AForm&	operator=(const AForm& other);
 		
 		//Getters	----------------------------------->
 		std::string	getName(void) const;
@@ -44,8 +45,12 @@ class   Form
 		int			getMinGradeToExecute(void) const;
         
 		//Member functions	--------------------------->
-		void	beSigned(const Bureaucrat& bureaucrat);
 		void	checkGrade(int& grade);
+		void	beSigned(const Bureaucrat& bureaucrat);
+		void	copy_form_status(const bool form_status);
+
+		//Pure virtual function
+		virtual void	execute(Bureaucrat const & executor) const = 0;
 
         //Exception classes --------------------------->
         class   GradeTooHighException: public std::exception
@@ -61,6 +66,6 @@ class   Form
         };
 };
 
-std::ostream&	operator<<(std::ostream& os, const Form& form);
+std::ostream&	operator<<(std::ostream& os, const AForm& form);
 
 #endif
