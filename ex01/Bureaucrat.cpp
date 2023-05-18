@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkavalia <lkavalia@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: lkavalia <lkavalia@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:32:25 by lkavalia          #+#    #+#             */
-/*   Updated: 2023/05/17 20:51:00 by lkavalia         ###   ########.fr       */
+/*   Updated: 2023/05/18 10:46:51 by lkavalia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

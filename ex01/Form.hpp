@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkavalia <lkavalia@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: lkavalia <lkavalia@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:51:43 by lkavalia          #+#    #+#             */
-/*   Updated: 2023/05/17 18:56:33 by lkavalia         ###   ########.fr       */
+/*   Updated: 2023/05/18 10:37:55 by lkavalia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ class   Form
 		bool		getForm(void) const;
 		int			getMinGradeToSign(void) const;
 		int			getMinGradeToExecute(void) const;
+        
+		//Member functions	--------------------------->
+		void	beSigned(const Bureaucrat& bureaucrat);
+		void	checkGrade(int& grade);
 
         //Exception classes --------------------------->
         class   GradeTooHighException: public std::exception
@@ -55,10 +59,6 @@ class   Form
             public:
                 virtual const char  *what() const throw();
         };
-        
-		//Member functions	--------------------------->
-		void	beSigned(const Bureaucrat& bureaucrat);
-		void	checkGrade(int& grade);
 };
 
 std::ostream&	operator<<(std::ostream& os, const Form& form);

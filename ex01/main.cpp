@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkavalia <lkavalia@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: lkavalia <lkavalia@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:32:17 by lkavalia          #+#    #+#             */
-/*   Updated: 2023/05/17 20:52:28 by lkavalia         ###   ########.fr       */
+/*   Updated: 2023/05/18 10:47:22 by lkavalia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ int main(void)
 		std::cout << RED "Check the Form min_to_sign and min_to_execute they should be " << e.what() << BLANK << std::endl;
 	}
 
-	Form		a3("Radio tax legal version", 3, 3);
-	Bureaucrat	test_b("Max", 5);
+	Form		a3("Radio tax legal version", 2, 4);
+	Bureaucrat	test_b("Max", 2);
 
 	try	{	a3.beSigned(test_b);}
 	catch (Form::GradeTooLowException& e)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkavalia <lkavalia@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: lkavalia <lkavalia@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:51:38 by lkavalia          #+#    #+#             */
-/*   Updated: 2023/05/17 20:51:23 by lkavalia         ###   ########.fr       */
+/*   Updated: 2023/05/18 10:44:37 by lkavalia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,9 @@ void	Form::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() > _min_grade_to_sign)
 		throw	GradeTooLowException();
-	//_form_signed = true;
+	if (bureaucrat.getGrade() > _min_grade_to_execute)
+		throw	GradeTooLowException();
+	_form_signed = true;
 }
 
 //Exeptions	---------------------------------------------->
