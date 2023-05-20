@@ -6,7 +6,7 @@
 /*   By: lkavalia <lkavalia@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:51:43 by lkavalia          #+#    #+#             */
-/*   Updated: 2023/05/18 14:48:10 by lkavalia         ###   ########.fr       */
+/*   Updated: 2023/05/20 11:34:58 by lkavalia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,12 @@ class   AForm
 		virtual void	execute(Bureaucrat const & executor) const = 0;
 
         //Exception classes --------------------------->
+        class   FormHasBeenSignedException: public std::exception
+        {
+			public:
+				virtual const char	*what() const throw();
+        };
+
         class   GradeTooHighException: public std::exception
         {
             public:

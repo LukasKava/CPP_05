@@ -6,7 +6,7 @@
 /*   By: lkavalia <lkavalia@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:51:38 by lkavalia          #+#    #+#             */
-/*   Updated: 2023/05/18 12:55:26 by lkavalia         ###   ########.fr       */
+/*   Updated: 2023/05/20 11:37:50 by lkavalia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,11 @@ void	AForm::copy_form_status(const bool form_status)
 }
 
 //Exeptions	---------------------------------------------->
+const char	*AForm::FormHasBeenSignedException::what() const throw()
+{
+	return	("Form already has been signed! Sorry be quicker next time.");
+}
+
 const char	*AForm::GradeTooHighException::what() const throw()
 {
 	return	(" is too high.");
