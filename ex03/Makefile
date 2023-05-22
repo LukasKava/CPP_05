@@ -6,11 +6,11 @@
 #    By: lkavalia <lkavalia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/14 16:39:17 by lkavalia          #+#    #+#              #
-#    Updated: 2023/05/22 12:32:00 by lkavalia         ###   ########.fr        #
+#    Updated: 2023/05/22 13:59:58 by lkavalia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = AllForms
+NAME = Intern
 
 CC = c++
 

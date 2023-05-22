@@ -6,11 +6,12 @@
 /*   By: lkavalia <lkavalia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:32:17 by lkavalia          #+#    #+#             */
-/*   Updated: 2023/05/22 12:09:07 by lkavalia         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:06:39 by lkavalia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
+#include "Intern.hpp"
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -61,7 +62,7 @@ int main(void)
 		PresidentialPardonForm	p2("PIKOBELLA");
 		PresidentialPardonForm	p3(p2);
 		
-		std::cout << "Bureaucrat.	" << b1;
+		std::cout << "\nBureaucrat.	" << b1;
 		p2.beSigned(b1);
 		std::cout << "1.	" << p1 << YELL "target: " BLANK << p1.getTarget() << std::endl;
 		std::cout << "2.	" << p2 << YELL "target: " BLANK << p2.getTarget() << std::endl;
@@ -79,7 +80,7 @@ int main(void)
 		RobotomyRequestForm     p2("Maximus");
 		RobotomyRequestForm     p3(p2);
 		
-		std::cout << "Bureaucrat.	" << b1;
+		std::cout << "\nBureaucrat.	" << b1;
 		p1.beSigned(b1);
 		std::cout << "1.	" << p1 << YELL "target: " BLANK << p1.getTarget() << std::endl;
 		std::cout << "2.	" << p2 << YELL "target: " BLANK << p2.getTarget() << std::endl;
@@ -97,7 +98,8 @@ int main(void)
 		ShrubberyCreationForm		p2("JerryBerry");
 	    ShrubberyCreationForm		p3(p2);
 		
-		std::cout << "Bureaucrat.	" << b1;
+		
+		std::cout << "\nBureaucrat.	" << b1;
 		p1.beSigned(b1);
 		std::cout << "1.	" << p1 << YELL "target: " BLANK << p1.getTarget() << std::endl;
 		std::cout << "2.	" << p2 << YELL "target: " BLANK << p2.getTarget() << std::endl;
@@ -109,5 +111,20 @@ int main(void)
         std::cout << std::endl;
 	}
 	
+	std::cout << YELL "\nIntern: ------------------" BLANK << std::endl;
+	{
+		Intern	someRandomIntern;
+		AForm*	rrf;
+
+		rrf = someRandomIntern.makeForm("Presidential Pardon", "berry");
+		if (rrf == NULL)
+			std::cout << RED "Intern has failed to create form because form name is incorrect!" BLANK << std::endl;
+		else
+		{
+			std::cout << *rrf << std::endl;
+			delete rrf;
+		}
+		std::cout << std::endl;
+	}
     return (0);
 }
